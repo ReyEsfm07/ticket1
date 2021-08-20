@@ -1,0 +1,37 @@
+<%- include("templates/header",{titulo:"Inicio"}) %>
+
+    <body>
+        <h1 class="text-center"> <%= Titulo_tabla %></h1>
+        <h3 id="tc">Seleccione una fecha inicial para su tabla</h3>
+        <input type="month" id="start" name="trip-start"
+        value="2021-01"
+        min="2020-01" max="2030-12"> 
+
+        <a href="/tablas">
+            <button onclick="submit()">Aceptar</button>
+        </a>
+
+        
+
+
+
+
+
+
+        <!-- <input id="names" placeholder="Enter Your Party's names">
+        <button onclick="submit()">Submit</button>
+        
+        <div id="namesList"></div> -->
+
+
+
+
+
+        <script src="/staticPublic/js/tablaCal.js"></script>
+        <!-- <script src="/staticPublic/js/tabla.js"></script> -->
+
+
+        
+    </body>
+
+<%- include("templates/footer") %>

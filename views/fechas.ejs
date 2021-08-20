@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+ 
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div class="container" >
+
+        <div class="form-group" class="text-center">
+            <button type="button" class="btn btn-primary mr-2" class="text-center" onclick=agregarColumna()>Agregar Columna</button>
+            <button type="button" class="btn btn-danger" class="text-center" onclick=eliminarColumna()>Eliminar Columna</button>
+        </div>
+<!-- TABLA1 -->
+        <div >
+            <h2><caption>FLUJO DE EFECTIVO</caption></h2>
+            <table class="table" id="table1">
+                
+                <thead >
+    
+                    <tr id="headTable">
+                        <th scope="col" class="ColName" >Titulos\Mes</th>
+                    
+                        <!-- fecha Dinamico -->
+                        <!-- <th scope="col">Fecha 1</th>
+                        <th scope="col">Fecha 2</th>
+                        <th scope="col">Fecha 3</th> -->
+                        <!-- fecha Dinamico -->
+    
+                        <th scope="col" id="columFinal" class="ColName">SUMATORIA TOTAL</th>
+                    </tr>
+    
+    
+                </thead  >
+    
+    
+                <tbody>
+    
+                    <tr id="bodyColINGRESOS">
+                        <th scope="col"> INGRESOS  </th>
+                        <!-- datos dinamicos -->
+                        <!-- <td> datos  </td>
+                        <td> datos  </td>
+                        <td> datos  </td> -->
+                        <td scope="col" id="ultColumnSumINGRESOS"> datos sumatoria</td>
+                        <!-- datos dinamicos -->
+                    </tr>
+                    <tr id="bodyColEGRESOS">
+                        <th scope="col"> EGRESOS  </th>
+                        <!-- datos dinamicos -->
+                        <!-- <td> datos  </td>
+                        <td> datos  </td>
+                        <td> datos  </td> -->
+                        <td scope="col" id="ultColumnSumEGRESOS"> datos sumatoria</td>
+                        <!-- datos dinamicos -->
+                    </tr>
+                    <tr id="bodyColTOTAL">
+                        <th scope="col"> TOTAL  </th>
+                        <!-- datos dinamicos -->
+                        <!-- <td> datos  </td>
+                        <td> datos  </td>
+                        <td> datos  </td> -->
+                        <td scope="col" id="ultColumnSumTOTAL"> datos sumatoria</td>
+                        <!-- datos dinamicos -->
+                    </tr>
+                    <tr id="bodyColTOTAL_ACUMULADO">
+                        <th scope="col"> TOTAL ACUM.  </th>
+                        <!-- datos dinamicos -->
+                        <!-- <td> datos  </td>
+                        <td> datos  </td>
+                        <td> datos  </td> -->
+                        <td scope="col" id="ultColumnSumTOTAL_ACUMULADO"> datos sumatoria</td>
+                        <!-- datos dinamicos -->
+                    </tr>
+            
+                </tbody>
+    
+    
+    
+            </table> 
+        </div>
+<!-- TABLA2 -->
+        <div >
+            <h2><caption>RESUMEN FINANCIERO</caption></h2>
+            <table class="table" id="table2">
+                
+
+                <thead >
+    
+                    <tr id="headTable2">
+                        <th scope="col" class="ColName">Titulos/Mes</th>
+                    
+                        <!-- fecha Dinamico -->
+                        <!-- <th scope="col">Fecha 1</th>
+                        <th scope="col">Fecha 2</th>
+                        <th scope="col">Fecha 3</th> -->
+                        <!-- fecha Dinamico -->
+    
+                        <th scope="col" id="columFinal2" class="ColName">SUMATORIA TOTAL</th>
+                    </tr>
+    
+    
+                </thead  >
+    
+    
+                <tbody>
+    
+                    <tr id="bodyColINGRESOS2">
+                        <th scope="col"> VENTAS  </th>
+                        <!-- datos dinamicos -->
+                        <!-- <td> datos  </td>
+                        <td> datos  </td>
+                        <td> datos  </td> -->
+                        <td scope="col" id="ultColumnSumINGRESOS2"> datos sumatoria</td>
+                        <!-- datos dinamicos -->
+                    </tr>
+                    <tr id="bodyColEGRESOS2">
+                        <th scope="col"> COSTOS  </th>
+                        <!-- datos dinamicos -->
+                        <!-- <td> datos  </td>
+                        <td> datos  </td>
+                        <td> datos  </td> -->
+                        <td scope="col" id="ultColumnSumEGRESOS2"> datos sumatoria</td>
+                        <!-- datos dinamicos -->
+                    </tr>
+                    <tr id="bodyColTOTAL2">
+                        <th scope="col"> MARGEN  </th>
+                        <!-- datos dinamicos -->
+                        <!-- <td> datos  </td>
+                        <td> datos  </td>
+                        <td> datos  </td> -->
+                        <td scope="col" id="ultColumnSumTOTAL2"> datos sumatoria</td>
+                        <!-- datos dinamicos -->
+                    </tr>
+                    <tr id="bodyColTOTAL_ACUMULADO2">
+                        <th scope="col"> SALDO FINAL  </th>
+                        <!-- datos dinamicos -->
+                        <!-- <td> datos  </td>
+                        <td> datos  </td>
+                        <td> datos  </td> -->
+                        <td scope="col" id="ultColumnSumTOTAL_ACUMULADO2"> datos sumatoria</td>
+                        <!-- datos dinamicos -->
+                    </tr>
+            
+                </tbody>
+    
+    
+            </table> 
+        </div>
+<!-- TABLA3 -->
+        <div id="Divtabla3">
+            <!-- BOTON -->
+            <div class="form-group" class="text-center">
+                <button type="button" class="btn btn-primary mr-2" class="text-center" onclick=agregarConcepto()>Agregar Concepto</button>
+            </div>
+            <h2><caption>INGRESOS</caption></h2>
+            <table class="table" id="table3">
+                
+
+                <thead id='headTable3'>
+                    <tr id="trTable3">
+
+                        <th scope="col" class="ColName">Concepto/Mes</th>
+                        
+                        <template id='template-fechas'>
+                            <th scope="col" class="fecha_template">${fecha} </th>
+                        </template>
+
+                        <th scope="col" id="columpenultima3" class="ColName">SUMATORIA TOTAL</th>
+                        <th scope="col" id="columFinal3" class="ColName">ACCIONES</th>
+                    </tr>  
+                </thead  >
+    
+                <tbody id='bodyTable3'>
+
+
+
+
+                    <template id='template-concepto-body'>
+                        <tr id="conceptoDinamicoBodyTable3" >
+                            <td scope="col" class="conceptoDinamicoBodyTable3td"> 
+                            </td>
+                            <td scope="col" class="datosSumatoriaDinamicoBodyTable3th" id="datosSumatoriaDinamicoBodyTable3th"> datos sumatoria  </td>
+                            <td scope="col" class="accionesDinamicoBodyTable3th" id="datosAccionesDinamicoBodyTable3th"> acciones  </td>
+                        </tr>
+                    </template>
+
+
+                    <template id='template-concepto-body-primeraVez'>
+                        <tr id="conceptoDinamicoBodyTable3C1">
+                            <td scope="col" class="conceptoDinamicoBodyTable3td">
+                                <input type="text" class="conceptoDinamicoBodyTable3tdi" placeholder="conceptojs" id="concepto_titulo_input_Col1_Concep1">
+                            </td>
+                           
+                          
+
+                            <td scope="col" class="datosSumatoriaDinamicoBodyTable3th" id="datosSumatoriaDinamicoBodyTable3thCSum1"> datos sumatoria  </td>
+                            <td scope="col" class="accionesDinamicoBodyTable3th" id="datosAccionesDinamicoBodyTable3thCAcc11"> acciones  </td>
+                        </tr>
+                    </template>
+
+                </tbody>
+    
+    
+            </table> 
+        </div>
+
+    </div>
+
+
+
+
+    
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="/staticPublic/js/tabla.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+ 
+<tr id="conceptoDinamicoBodyTable3C1">
+    <td scope="col" class="conceptoDinamicoBodyTable3td"><input type="text" class="conceptoDinamicoBodyTable3tdi" placeholder="conceptojs" id="concepto_titulo_input_Col1_Concep1"></td>
+    <td><input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col1_Concep1" placeholder="INGRESO"></td><td><input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col2_Concep1" placeholder="INGRESO"></td><td><input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col3_Concep1" placeholder="INGRESO"></td><td><input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col4_Concep1" placeholder="INGRESO"></td>
+    <td scope="col" class="datosSumatoriaDinamicoBodyTable3th" id="datosSumatoriaDinamicoBodyTable3thCSum1"> datos sumatoria  </td>
+    <td scope="col" class="accionesDinamicoBodyTable3th" id="datosAccionesDinamicoBodyTable3thCAcc11"> acciones  </td>
+</tr>
+
+<td><input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col1_Concep1" placeholder="INGRESO"></td>
+<td><input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col2_Concep1" placeholder="INGRESO"></td> -
+
+ -->
+
+
+<!-- <tr id="conceptoDinamicoBodyTable3C2">
+    <td scope="col" class="conceptoDinamicoBodyTable3td">
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" placeholder="conceptojs" id="concepto_titulo_input_Col1_Concep0">
+    </td>
+
+
+    <td>
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col1_Concep2" placeholder="INGRESO">
+    </td>
+    <td>
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col2_Concep2" placeholder="INGRESO">
+    </td>
+    <td>
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col3_Concep2" placeholder="INGRESO">
+    </td>
+    <td>
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col4{}_Concep2" placeholder="INGRESO">
+    </td>
+
+
+    <td scope="col" class="datosSumatoriaDinamicoBodyTable3th" id="datosSumatoriaDinamicoBodyTable3thCSum0"> datos sumatoria  </td>
+    <td scope="col" class="accionesDinamicoBodyTable3th" id="datosAccionesDinamicoBodyTable3thCAcc01"> acciones  </td>
+</tr> -->
+
+
+<!-- <td scope="col" class="datosSumatoriaDinamicoBodyTable3th" id="datosSumatoriaDinamicoBodyTable3thCSum1"> datos sumatoria  </td>
+<td scope="col" class="accionesDinamicoBodyTable3th" id="datosAccionesDinamicoBodyTable3thCAcc11"> acciones  </td> -->
+
+
+<!-- <tr id="conceptoDinamicoBodyTable3C1">
+    <td scope="col" class="conceptoDinamicoBodyTable3td">
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" placeholder="conceptojs" id="concepto_titulo_input_Col1_Concep1">
+    </td>
+    <td>
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col1_Concep1" placeholder="INGRESO">
+    </td>
+    <td>
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col2_Concep1" placeholder="INGRESO">
+    </td>
+    <td>
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col3_Concep1" placeholder="INGRESO">
+    </td>
+    <td>
+        <input type="text" class="conceptoDinamicoBodyTable3tdi" id="concepto_Col4_Concep1" placeholder="INGRESO">
+    </td>
+    <td scope="col" class="datosSumatoriaDinamicoBodyTable3th" id="datosSumatoriaDinamicoBodyTable3thCSum1"> datos sumatoria  </td>
+    <td scope="col" class="accionesDinamicoBodyTable3th" id="datosAccionesDinamicoBodyTable3thCAcc11"> acciones  </td>
+</tr> -->

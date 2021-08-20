@@ -1,0 +1,49 @@
+<%- include("templates/header",{titulo:"Inicio"}) %>
+
+    <body>
+        <h1 class="text-center"> <%= Titulo_tabla %></h1>
+        
+
+        <div class="container">
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Id Presupuesto</th>
+                    <th scope="col">Fecha Creación</th>
+                    <th scope="col">Proyecto</th>
+                    <th scope="col">Versión</th>
+                    <th scope="col">ACCIONES</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% if (Datos.length>0) { %> 
+                        <% Datos[0].forEach(dato => { %>
+
+                            <tr>
+                                <th scope="row"><%= dato.id_num  %> </th>
+                                <td><%= dato.Fecha_creacion %> </td>
+                                <td><%= dato.proyecto %> </td>
+                                <td><%= dato.vers %> </td>
+                                <td><button>eliminar</button>
+                                    <button>Editar</button>
+                                    <button>enviar</button></td>
+                            </tr>
+            
+                        <% }) %>
+                    <% } %>    
+                </tbody>
+            </table> -->
+
+         <a href="/nuevoPresupuesto">
+            <button>Nuevo Presupuesto</button>
+        </a>
+
+        </div>
+
+
+
+    </body>
+
+<%- include("templates/footer") %>
+  

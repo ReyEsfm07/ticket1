@@ -1,0 +1,118 @@
+
+{
+    "nombreProyecto":"Ticket1presuspuestos",
+    "version":"1.0.0",
+    "datos":{
+        "periodo1":{
+            "periodo":"Primer Mes
+            "ingresos":{
+                "concepto1":{
+                    "concepto":"Primer Concepto",
+                    "cantidad": "20"
+                },
+                "concepto2":{
+                    "concepto":"Segundo Concepto",
+                    "cantidad": "60"
+                }
+            },
+            "costos_directos":{
+                "concepto1":{
+                    "concepto":"Primer costo directo",
+                    "cantidad":"40"
+                },
+                "concepto2":{
+                    "concepto":"Segundo costo directo",
+                    "cantidad":"66"
+                },
+                "concepto3":{
+                    "concepto":"Tercer costo directo",
+                    "cantidad":"8"
+                }
+            },
+            "costos_administrativos":{
+                "concepto1":{
+                    "concepto": "Primer costo administrativo",
+                    "cantidad": "70"
+                },
+                "concepto2":{
+                    "concepto": "Segundo costo administrativo",
+                    "cantidad": "63"
+                }
+            },
+            "porcentaje_recursos":{
+                "recurso1":{
+                    "rol_recurso":"Recurso 1",
+                    "costo_mensual": "3000",
+                    "porcentaje": "0.30"
+                },
+                "recurso2":{
+                    "rol_recurso":"Recurso 2",
+                    "costo_mensual": "5000",
+                    "porcentaje": "0.25"
+                },
+                "recurso3":{
+                    "rol_recurso":"Recurso 3",
+                    "costo_mensual": "2000",
+                    "porcentaje": "0.15"
+                }
+            }
+        },
+        "periodo2":{
+            "periodo":"Segundo Mes
+            "ingresos":{
+                "concepto1":{
+                    "concepto":"Primer Concepto",
+                    "cantidad": "200"
+                },
+                "concepto2":{
+                    "concepto":"Segundo Concepto",
+                    "cantidad": "90"
+                }
+            },
+            "costos_directos":{
+                "concepto1":{
+                    "concepto":"Primer costo directo",
+                    "cantidad":"30"
+                },
+                "concepto2":{
+                    "concepto":"Segundo costo directo",
+                    "cantidad":"68"
+                },
+                "concepto3":{
+                    "concepto":"Tercer costo directo",
+                    "cantidad":"230"
+                }
+            },
+            "costos_administrativos":{
+                "concepto1":{
+                    "concepto": "Primer costo administrativo",
+                    "cantidad": "150"
+                },
+                "concepto2":{
+                    "concepto": "Segundo costo administrativo",
+                    "cantidad": "20"
+                }
+            },
+            "porcentaje_recursos":{
+                "recurso1":{
+                    "rol_recurso":"Recurso 1",
+                    "costo_mensual": "2000",
+                    "porcentaje": "0.25"
+                },
+                "recurso2":{
+                    "rol_recurso":"Recurso 2",
+                    "costo_mensual": "1000",
+                    "porcentaje": "0.25"
+                },
+                "recurso3":{
+                    "rol_recurso":"Recurso 3",
+                    "costo_mensual": "32000",
+                    "porcentaje": "0.15"
+                }
+            }
+        }
+    }
+}
+
+
+
