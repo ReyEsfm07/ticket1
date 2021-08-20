@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "06ec45fa-7fa7-4691-b19b-11a59af79aaa",
+		"name": "consulta api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ingresos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/data/datos_presupuesto_Ingresos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"data",
+						"datos_presupuesto_Ingresos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recursos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/data/datos_presupuesto_Recursos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"data",
+						"datos_presupuesto_Recursos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CostosAdministrativos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/data/datos_presupuesto_CostAdm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"data",
+						"datos_presupuesto_CostAdm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CostosDirectos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/data/datos_presupuesto_CostDir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"data",
+						"datos_presupuesto_CostDir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InformacionGeneral",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/data/dataTables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"data",
+						"dataTables"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombres\":\"John\",\r\n    \"apellidos\":\"cruz\",\r\n     \"correo\":\"john@gmail.com\",\r\n     \"password\":\"batman1234\"\r\n\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/register  ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"register  "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enviar datos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkX3VzdWFyaW8iOjEsImNvcnJlbyI6ImVyaWNAZ21haWwuY29tIiwidGlwb1VzdWFyaW8iOjJ9LCJpYXQiOjE2Mjk0OTE0NDMsImV4cCI6MTYyOTQ5NTA0M30.hmmCD90vZZQWEjVPpZWKaL7RX8s7o6Kmgg7Szrxu9bM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"nombreProyecto\":\"Ticket1presuspuestos\",\r\n    \"version\":\"1.0.0\",\r\n    \"datos\":{\r\n        \"periodo1\":{\r\n            \"periodo\":\"Primer Mes\r\n            \"ingresos\":{\r\n                \"concepto1\":{\r\n                    \"concepto\":\"Primer Concepto\",\r\n                    \"cantidad\": \"20\"\r\n                },\r\n                \"concepto2\":{\r\n                    \"concepto\":\"Segundo Concepto\",\r\n                    \"cantidad\": \"60\"\r\n                }\r\n            },\r\n            \"costos_directos\":{\r\n                \"concepto1\":{\r\n                    \"concepto\":\"Primer costo directo\",\r\n                    \"cantidad\":\"40\"\r\n                },\r\n                \"concepto2\":{\r\n                    \"concepto\":\"Segundo costo directo\",\r\n                    \"cantidad\":\"66\"\r\n                },\r\n                \"concepto3\":{\r\n                    \"concepto\":\"Tercer costo directo\",\r\n                    \"cantidad\":\"8\"\r\n                }\r\n            },\r\n            \"costos_administrativos\":{\r\n                \"concepto1\":{\r\n                    \"concepto\": \"Primer costo administrativo\",\r\n                    \"cantidad\": \"70\"\r\n                },\r\n                \"concepto2\":{\r\n                    \"concepto\": \"Segundo costo administrativo\",\r\n                    \"cantidad\": \"63\"\r\n                }\r\n            },\r\n            \"porcentaje_recursos\":{\r\n                \"recurso1\":{\r\n                    \"rol_recurso\":\"Recurso 1\",\r\n                    \"costo_mensual\": \"3000\",\r\n                    \"porcentaje\": \"0.30\"\r\n                },\r\n                \"recurso2\":{\r\n                    \"rol_recurso\":\"Recurso 2\",\r\n                    \"costo_mensual\": \"5000\",\r\n                    \"porcentaje\": \"0.25\"\r\n                },\r\n                \"recurso3\":{\r\n                    \"rol_recurso\":\"Recurso 3\",\r\n                    \"costo_mensual\": \"2000\",\r\n                    \"porcentaje\": \"0.15\"\r\n                }\r\n            }\r\n        },\r\n        \"periodo2\":{\r\n            \"periodo\":\"Segundo Mes\r\n            \"ingresos\":{\r\n                \"concepto1\":{\r\n                    \"concepto\":\"Primer Concepto\",\r\n                    \"cantidad\": \"200\"\r\n                },\r\n                \"concepto2\":{\r\n                    \"concepto\":\"Segundo Concepto\",\r\n                    \"cantidad\": \"90\"\r\n                }\r\n            },\r\n            \"costos_directos\":{\r\n                \"concepto1\":{\r\n                    \"concepto\":\"Primer costo directo\",\r\n                    \"cantidad\":\"30\"\r\n                },\r\n                \"concepto2\":{\r\n                    \"concepto\":\"Segundo costo directo\",\r\n                    \"cantidad\":\"68\"\r\n                },\r\n                \"concepto3\":{\r\n                    \"concepto\":\"Tercer costo directo\",\r\n                    \"cantidad\":\"230\"\r\n                }\r\n            },\r\n            \"costos_administrativos\":{\r\n                \"concepto1\":{\r\n                    \"concepto\": \"Primer costo administrativo\",\r\n                    \"cantidad\": \"150\"\r\n                },\r\n                \"concepto2\":{\r\n                    \"concepto\": \"Segundo costo administrativo\",\r\n                    \"cantidad\": \"20\"\r\n                }\r\n            },\r\n            \"porcentaje_recursos\":{\r\n                \"recurso1\":{\r\n                    \"rol_recurso\":\"Recurso 1\",\r\n                    \"costo_mensual\": \"2000\",\r\n                    \"porcentaje\": \"0.25\"\r\n                },\r\n                \"recurso2\":{\r\n                    \"rol_recurso\":\"Recurso 2\",\r\n                    \"costo_mensual\": \"1000\",\r\n                    \"porcentaje\": \"0.25\"\r\n                },\r\n                \"recurso3\":{\r\n                    \"rol_recurso\":\"Recurso 3\",\r\n                    \"costo_mensual\": \"32000\",\r\n                    \"porcentaje\": \"0.15\"\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/data/datos_presupuesto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"data",
+						"datos_presupuesto"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
