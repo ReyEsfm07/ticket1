@@ -1,11 +1,10 @@
-const Ingresoss=require("../../database/dbIngresos")
-const ConcepIngresoss=require("../../database/dbConcepIngresos")
-const Periodoss=require("../../database/dbPeriodos")
+const Ingresoss = require("../../database/dbIngresos")
+const ConcepIngresoss = require("../../database/dbConcepIngresos")
+const Periodoss = require("../../database/dbPeriodos")
 
 
-
-let listaIngresos=async()=>{
-    let asd=await Ingresoss.findAll({
+let listaIngresos = async() =>{
+    let IngresosList = await Ingresoss.findAll({
         attributes:['id_ingresos',['ingresos_cantidad','Cantidad']],
         include:[
             {model:ConcepIngresoss,
@@ -17,11 +16,10 @@ let listaIngresos=async()=>{
             required:true
         }
         ]
-        // where:{id_version_presupuesto:}
     
     });
-    return asd
+    return IngresosList
             
 };
 
-module.exports={listaIngresos}
+module.exports = {listaIngresos}

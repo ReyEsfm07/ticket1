@@ -1,7 +1,5 @@
-// Importar los mudulos necesarios a utilizar
 const Periodos = require('../../database/dbPeriodos');
 
-// Definir los modulos
 let registrarPeriodos = async(periodo, idPresupuesto) =>{
     try {
         let periodoRegistrado = await Periodos.findOne({where: {periodo: `${periodo}`,id_version_presupuesto: `${idPresupuesto}`}});
@@ -18,5 +16,4 @@ let registrarPeriodos = async(periodo, idPresupuesto) =>{
     }
 }
 
-// Exportar modulos
 module.exports = {registrarPeriodos};

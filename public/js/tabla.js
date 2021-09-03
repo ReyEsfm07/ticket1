@@ -38,7 +38,7 @@ function agregarColumna() {
   // console.log("cjhecatye esti",columnasFecha===0)
 
   if(fecha_pres===null && columnasFecha===0){
-    window.location.replace("http://localhost:3000/calendario");
+    window.location.replace("http://localhost:3000/api/user/calendario");
   }else{
     
 

@@ -53,5 +53,16 @@ let registrarDatos = async(datos,idPresupuesto) =>{
 }
 
 
+
+
+
+let eliminarPresupuesto = async(idPresupuesto) =>{
+    try{
+        await modeloProyectos.eliminarPresupuesto(idPresupuesto);
+    } catch(error) {
+        console.log(`Error en el controlador al intentar eliminar el presupuesto: ${error}`);
+        throw new Error(error.message);
+    }
+}
 // Exportar los modulos
-module.exports = {registrarProyecto,registrarDatos};
+module.exports = {registrarProyecto,registrarDatos,eliminarPresupuesto};

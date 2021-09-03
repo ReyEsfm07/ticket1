@@ -4,6 +4,38 @@ const controladorUsuarios = require('../../controlador/ControllerUsers');
 const middUsuarios = require('../../../middlewares/midd.usuarios');
 const ExtractDataUsers= require('../../controlador/EDConntrollerUsers-type')
 
+//usamos ExpressRouters para gestionar las rutas 
+const express=require("express")
+// const bodyparser=require('body-parser')
+
+
+
+
+
+
+// // Registro de usuarios
+// //Eleminar id usuario
+// // {
+// //"id_usuario":1
+// // }
+// router.delete('/perfil', async(request, response)=>{
+//     let usuario = request.body.Idusuario;
+//     try {
+//         let eleminarUsuario = await controladorUsuarios.eliminarusuario(usuario);
+//         response.status(200).json({message: 'se elimino el usuario'})
+//     } catch (error) {
+//         console.log(error.message);
+//         response.status(500).json({message: error.message});
+//     }
+// })
+
+
+
+
+
+
+
+
 
 
 // Registro de usuarios
@@ -17,6 +49,7 @@ const ExtractDataUsers= require('../../controlador/EDConntrollerUsers-type')
 // }
 router.post('/register', middUsuarios.datosRegistro, async(request, response)=>{
     let usuario = request.body;
+    console.log(usuario)
     try {
         let nuevoUsuario = await controladorUsuarios.nuevoRegistro(usuario);
         response.status(200).json({message: 'Registro de usuario exitoso'})
@@ -27,25 +60,18 @@ router.post('/register', middUsuarios.datosRegistro, async(request, response)=>{
 })
 
 
-
-//Inicio de sesion
-//Ejemplo de como ingresar los datos
-// El token en el headers
-// {
-
-//     "correo":"eric@gmail.com",
-//     "password":"batman123"
-
-// }
 router.post('/new_sesion', middUsuarios.datosIniciarSesion,async(request, response)=>{
     let usuario = request.body;
+    console.log(usuario)
     try {
         let infoUsuario = await controladorUsuarios.buscarUsuario(usuario);
 
-        if(infoUsuario != null){
+        if(infoUsuario){
             let token = await controladorUsuarios.generarToken(infoUsuario);
-            response.status(200).json({message: 'El usuario es valido', token});
+            response.status(200).json({menssage: 'El usuario es valido', token});
+            return token
         }
+        
     } catch (error) {
         console.log(error.message);
         response.status(500).json({message: error.message});
@@ -53,43 +79,54 @@ router.post('/new_sesion', middUsuarios.datosIniciarSesion,async(request, respon
 })
 
 
+//Extraer Datos de los usuarios sus datos
 router.get('/new_sesion',async(request, response)=>{
-try {
-    response.send(await ExtractDataUsers.ObtenerDatosUsers_typeUsers())
+    try {
+        // response.send(await ExtractDataUsers.ObtenerDatosUsers_typeUsers())
+        response.render('login')
 
-} catch (error) {
-    console.log(error.message);
-    response.status(500).json({message: error.message});
-}
-})
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).json({message: error.message});
+    }
+});
+
+
+// //creamos las rutas 
+// router.get("/",(request,response)=>{
+//     // response.send("WELCOME")
+//     response.json({
+//         estado:true,
+//         mensaje:"funcional"
+//     })
+// });
+
+
+
+
+
+// //Ruta Tabla
+// router.get("/tablas",async(request,response)=>{
+//     try {
+
+//         response.status(200).render("fechas")
+//     }catch (err) {
+//         console.log(err.message)
+//         response.status(500).json({message:"Error en el servidor",error:err.message})
+//     }
+// });
+
+// router.get("/calendario",async(request,response)=>{
+//     try {
+
+//         response.status(200).render("calendario",{Titulo_tabla:"CALENDARIO"})
+//     }catch (err) {
+//         console.log(err.message)
+//         response.status(500).json({message:"Error en el servidor",error:err.message})
+//     }
+// });
+
 
 module.exports=router
-
-
-// router.post('/register',async(require,response)=>{
-//     const user=new User({
-//         name:require.body.nombres,
-//         apellido:require.body.apellidos,
-//         email:require.body.correo,
-//         password:require.body.password,
-//         estado:require.body.estado,
-//         tipo_usuario:equire.body.id_tipo_usuario
-
-//     })
-//     try {
-//         const savedUserDB=await user.savedUser();
-//         response.json({
-//             error:null,
-//             data:userDB
-//         })
-//     } catch (error) {
-//         response.status(400).json(error)
-        
-//     }
-
-
-// })
-
-
 
 

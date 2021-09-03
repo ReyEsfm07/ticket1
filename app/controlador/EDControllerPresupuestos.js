@@ -1,12 +1,12 @@
-let EDMIngresos=require("../modelo/EDModelIng-Cop-Per")
-let EDMCostosDir=require("../modelo/EDModelCostD-Concep-Per")
-let EDMCostosAdm=require("../modelo/EDModelCostAdm-Concep-Per")
-let EDMRecursos=require("../modelo/EDModelRol-PRec-Per")
+let EDMIngresos = require("../modelo/EDModelIng-Cop-Per")
+let EDMCostosDir = require("../modelo/EDModelCostD-Concep-Per")
+let EDMCostosAdm = require("../modelo/EDModelCostAdm-Concep-Per")
+let EDMRecursos = require("../modelo/EDModelRol-PRec-Per")
 
 
-let ObtenerDatosIngresos=async()=>{
+let ObtenerDatosIngresos = async()=>{
     try {
-        let ObtenerDatos=await EDMIngresos.listaIngresos()
+        let ObtenerDatos = await EDMIngresos.listaIngresos()
         return ObtenerDatos
     } catch (error) {
         console.log(`Error en el Join Ingresos: ${error}`);
@@ -14,9 +14,9 @@ let ObtenerDatosIngresos=async()=>{
     }
 }
 
-let ObtenerDatosCostosDirectos=async()=>{
+let ObtenerDatosCostosDirectos = async()=>{
     try {
-        let ObtenerDatos=await EDMCostosDir.listaCostosDirectos()
+        let ObtenerDatos = await EDMCostosDir.listaCostosDirectos()
         return ObtenerDatos
     } catch (error) {
         console.log(`Error en el Join Ingresos: ${error}`);
@@ -24,9 +24,9 @@ let ObtenerDatosCostosDirectos=async()=>{
     }
 } 
 
-let ObtenerDatosCostosAdministrativos=async()=>{
+let ObtenerDatosCostosAdministrativos = async()=>{
     try {
-        let ObtenerDatos=await EDMCostosAdm.listaCostosAdministrativos()
+        let ObtenerDatos = await EDMCostosAdm.listaCostosAdministrativos()
         return ObtenerDatos
     } catch (error) {
         console.log(`Error en el Join Ingresos: ${error}`);
@@ -34,9 +34,9 @@ let ObtenerDatosCostosAdministrativos=async()=>{
     }
 } 
 
-let ObtenerDatosRecursos=async()=>{
+let ObtenerDatosRecursos = async()=>{
     try {
-        let ObtenerDatos=await EDMRecursos.listaRecursos()
+        let ObtenerDatos = await EDMRecursos.listaRecursos()
         return ObtenerDatos
     } catch (error) {
         console.log(`Error en el Join Recursos: ${error}`);

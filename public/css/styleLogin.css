@@ -1,0 +1,51 @@
+  
+:root{
+    --dark:#16191c;
+    --dark-x:#1e2126;
+    --light:#ffffff;
+}
+
+body{
+    color:var(--light) ;
+    /* font-family: "Hina Mincho", serif; */
+    font-family: 'Spartan', sans-serif;
+    font-weight: 300;
+    
+}
+
+.bg-dark{
+    background-color:var(--dark) !important ;
+}
+.bg-dark-x{
+    background-color: var(--dark-x); ;
+}
+.form-control, .btn {
+    min-height: 3.125rem;
+    line-height: initial;
+}
+
+.img-1{
+    background-image: url("/images/img5.png");
+    background-size: cover;
+    background-position: center ;
+
+}
+
+.img-2{
+    background-image: url("/images/img3.jpg");
+    background-size: cover;
+    background-position: center ;
+
+}
+
+#exampleInputEmail1{
+    color:rgb(61, 16, 209);
+}
+#exampleInputPassword1{
+    color:rgb(61, 16, 209);
+}
+
+.TeclaA{
+    color: yellow;
+    /* background:rgb(148, 246, 0) ; */
+}

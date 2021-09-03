@@ -1,8 +1,6 @@
-// Importar los mudulos necesarios a utilizar
 const RolRecursos = require('../../database/dbRolRecusos');
 const PorcentajeRecursos = require('../../database/dbPorcentajeRecursos');
 
-// Definir los modelos
 let registrarRol = async(recurso,costoMensual) =>{
     try{
         let recursoRegistrado = await RolRecursos.findOne({where: {rol_recurso: `${recurso}`}});
@@ -36,5 +34,4 @@ let asignarPorcentaje = async(idRecurso,porcentaje,periodo,idPresupuesto) =>{
     }
 }
 
-// Exportar modulos
 module.exports = {registrarRol, asignarPorcentaje};

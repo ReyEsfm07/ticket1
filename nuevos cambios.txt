@@ -1,0 +1,61 @@
+Nuevos Cambios:
+
+implementación del Login con token Frontend-Backend-MSSQL usando el metodo fetch
+http://localhost:3000/api/auth/new_sesion
+
+
+conexion entre el back y el front
+
+
+crear una cuenta usando postman :http://localhost:3000/api/auth/register
+con el siguiente formato
+{
+    "nombres":"eric",
+    "apellidos":"cruz",
+     "correo":"eric@gmail.com",
+     "password":"adererad"
+ }
+
+
+Eliminación de la carpeta servicios
+
+
+El JWT, ya no guarda información personal del usuario
+
+
+Implementación para eliminar el usuario o proyectos con el metodo Delete 
+y destroy(sequelize)
+
+
+ya funciona correctamente la creación de Columnas/filas en las tablas de 
+manera dinamica , iniciando en una fecha especifica
+http://localhost:3000/api/user/tablas
+
+
+Creacion y gestion de la carpeta DTO (data transfer Objects)
+
+
+Optimización en las sentencias condicionales (if)
+En lugar de de decir ->
+if (result != null)
+decimos ->
+if (result)
+
+
+Mayor manejo de espacio entre las declaraciones
+
+
+Eliminación del llamado a bodyparser, pues ya viene incluido en express
+
+
+Login y validaciones, se implemento en un Router aparte de la logica del 
+usuario
+
+
+
+
+
+
+
+
+

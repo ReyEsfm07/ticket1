@@ -24,9 +24,9 @@ const sequelize = require('./database/ConexionMSSQL');
 
 
 //MIDDELEWARE
-const cors=require("cors") 
-const Dotenv=require("dotenv").config()
-const morgan=require("morgan")
+const cors = require("cors") 
+const Dotenv = require("dotenv").config()
+const morgan = require("morgan")
 
 
 const middUsuarios = require('./middlewares/midd.usuarios');
@@ -63,7 +63,7 @@ const testConnection = async() =>{
         await sequelize.authenticate();
         console.log("SUCCESSFUL CONNECTION"); 
         //INICIAMOS NUESTRO SERVIDOR
-        app.listen(process.env.PORT,()=>{
+        app.listen(process.env.PORT,() => {
             console.log(`SUCCESSFUL SERVER http://${process.env.HOST}:${process.env.PORT}`);
         })
         }catch(error){
@@ -74,34 +74,21 @@ testConnection();
 
 
 
-
-// postresModel.findAll({atributes:['col1','col2']})
-//     .then(postres=>{
-//         const resultados=json.stringify(postres)
-//         console.log(postres)
-//     })
-//     .catch(error=>
-//         console.log(error))
-
-
-
-
-
 //Exportamos las rutas
 //Ruta de inicio
-app.use("/",require("./app/vista/routes/start.routes"));
-
-
+// app.use("/",require("./app/vista/routes/start.routes"));
 
 
 
 //Ruta de Registro Usuario
 // app.use("/",require("./app/Vista/routes/auth.routes"));
-const authRoutes=require('./app/Vista/routes/auth.routes')
-const data=require('./app/Vista/routes/datos.routes')
+const authRoutes = require('./app/Vista/routes/auth.routes')
+const data = require('./app/Vista/routes/datos.routes')
+const users = require('./app/Vista/routes/users.routes')
 //Router Middleware
-app.use('/api/user',authRoutes);
+app.use('/api/user',users);
 app.use('/api/data',data) 
+app.use('/api/auth',authRoutes) 
 
 
 

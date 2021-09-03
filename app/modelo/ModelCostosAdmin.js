@@ -1,8 +1,7 @@
-// Importar los mudulos necesarios a utilizar
 const ConceptoCostosAdministrativos = require('../../database/dbConcepCostosAdmin');
 const CostosAdministrativos = require('../../database/dbCostosAdmin');
 
-// Definir los modulos
+
 let registarConceptosCA = async(conceptoCA) =>{
     try {
         let conceptoRegistrado = await ConceptoCostosAdministrativos.findOne({where: {concepto_costo_administrativo: `${conceptoCA}`}});
@@ -35,5 +34,5 @@ let registrarCostosAdministrativos = async(conceptoCA,cantidad,periodo,idPresupu
     }
 }
 
-// Exportar lo modulos
+
 module.exports = {registarConceptosCA,registrarCostosAdministrativos}

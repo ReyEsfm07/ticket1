@@ -10,7 +10,7 @@ let nuevoRegistro = async(usuario) =>{
             let nuevoUsuario = await Usuarios.create({
                 nombres: usuario.nombres,
                 apellidos: usuario.apellidos,
-                correo: usuario.correo,
+                correo: usuario.correo, 
                 password: usuario.password,
                 activo: usuario.activo,
                 id_tipo_usuario: usuario.id_tipo_usuario
@@ -46,26 +46,7 @@ let buscarUsuario = async(usuario) =>{
     }
 }
 
-let cambiarPassword = async(usuario) =>{
-    try {
-        let usuarioExistente = await Usuarios.findOne({where: {correo: `${usuario.correo}`}});
-        if(usuarioExistente != null){
-            let validarPasswordActual = await bcrypt.compare(usuario.actualPassword,usuarioExistente.password);
-            if(validarPasswordActual){
-                let nuevaPassword = await Usuarios.update({password: `${usuario.nuevaPassword}`}, {where: {correo: `${usuario.correo}`}});
-            } else {
-                console.log('Contraseña invalida');
-                throw new Error('Contraseña invalida, por favor introduzca su contraseña actual');
-            }
-        } else {
-            console.log('Usuario no registrado');
-            throw new Error('Correo invalido, revise su correo');
-        }
-    } catch (error) {
-        console.log(`Error en el modelo al cambiar la password: ${error}`)
-        throw new Error(error.message);
-    }
-}
+
 
 let listarUsuarios = async() => {
     try {
@@ -77,7 +58,26 @@ let listarUsuarios = async() => {
     }
 }
 
-module.exports = {nuevoRegistro, buscarUsuario, listarUsuarios, cambiarPassword}
+
+
+
+let eliminarUsuario = async(idUsuario) =>{
+    try{
+        let usuarioRegistrado = await Usuarios.findOne({where: {id_usuario:`${idUsuario}`}})
+        if(usuarioRegistrado != null){
+            let proyecto = usuarioRegistrado.id_usuario;
+
+            await Usuarios.destroy({where: {id_usuario: `${proyecto}`}});
+        } else {
+            throw new Error('El usuario no se encuentra  en la base de datos');
+        }
+    } catch(error) {
+        console.log(`Error en el modelo al eliminar el usuario ${error}`);
+        throw new Error(error.message);
+    }
+}
+
+module.exports = {nuevoRegistro, buscarUsuario, listarUsuarios,eliminarUsuario}
 
 
 

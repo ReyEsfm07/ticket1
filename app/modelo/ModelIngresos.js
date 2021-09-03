@@ -1,8 +1,6 @@
-// Importar los mudulos necesarios a utilizar
 const ConceptoIngresos = require('../../database/dbConcepIngresos');
 const Ingresos = require('../../database/dbIngresos');
 
-// Definir los modulos
 let registrarConceptos = async (concepto)=>{
     try {
         let conceptoRegistrado = await ConceptoIngresos.findOne({where: {concepto_ingresos: `${concepto}`}});
@@ -35,5 +33,4 @@ let registrarIngresos = async(concepto,cantidad,periodo,idPresupuesto)=>{
     }
 }
 
-// Exportar los modulos
 module.exports = {registrarConceptos,registrarIngresos};

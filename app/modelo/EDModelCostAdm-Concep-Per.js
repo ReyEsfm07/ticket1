@@ -1,12 +1,9 @@
-const costosAdministrativos=require("../../database/dbCostosAdmin")
-const ConcepCostosAdministrativos=require("../../database/dbConcepCostosAdmin")
-const PeriodosCostosAdministrativos=require("../../database/dbPeriodos")
+const costosAdministrativos = require("../../database/dbCostosAdmin")
+const ConcepCostosAdministrativos = require("../../database/dbConcepCostosAdmin")
+const PeriodosCostosAdministrativos = require("../../database/dbPeriodos")
 
 
-
-
-
-let listaCostosAdministrativos=async()=>{
+let listaCostosAdministrativos = async() => {
     let CostAdm=await costosAdministrativos.findAll({
         attributes:['id_costos_administrativos',['costos_administrativos_cantidad','Cantidad']],
         include:[
@@ -19,11 +16,10 @@ let listaCostosAdministrativos=async()=>{
             required:true
         }
         ]
-        // where:{id_version_presupuesto:}
     
     });
     return CostAdm
             
 };
 
-module.exports={listaCostosAdministrativos}
+module.exports = {listaCostosAdministrativos}

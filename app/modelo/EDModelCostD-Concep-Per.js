@@ -1,13 +1,10 @@
-const costosDirectos=require("../../database/dbCostosDirectos")
-const ConcepCostosDirectos=require("../../database/dbConcepCostosDirectos")
-const PeriodosCostosDirectos=require("../../database/dbPeriodos")
+const costosDirectos = require("../../database/dbCostosDirectos")
+const ConcepCostosDirectos = require("../../database/dbConcepCostosDirectos")
+const PeriodosCostosDirectos = require("../../database/dbPeriodos")
 
 
-
-
-
-let listaCostosDirectos=async()=>{
-    let CostDir=await costosDirectos.findAll({
+let listaCostosDirectos = async() => {
+    let CostDir = await costosDirectos.findAll({
         attributes:['id_costos_directos',['costos_directos_cantidad','Cantidad']],
         include:[
             {model:ConcepCostosDirectos,
@@ -19,11 +16,10 @@ let listaCostosDirectos=async()=>{
             required:true
         }
         ]
-        // where:{id_version_presupuesto:}
     
     });
     return CostDir
             
 };
 
-module.exports={listaCostosDirectos}
+module.exports = {listaCostosDirectos}

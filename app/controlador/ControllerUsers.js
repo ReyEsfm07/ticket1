@@ -2,7 +2,9 @@ const modeloUsuarios = require('../modelo/ModelUsers');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-// Definir los modulos
+
+
+
 let nuevoRegistro = async(usuario) =>{
     try {
         usuario.activo = true;
@@ -20,7 +22,8 @@ let nuevoRegistro = async(usuario) =>{
 let buscarUsuario = async(usuario) =>{
     try {
         let infoUsuario = await modeloUsuarios.buscarUsuario(usuario);
-        if (infoUsuario != null){
+        // if (infoUsuario != null){
+        if (infoUsuario ){
             return infoUsuario;
         } else {
             throw new Error('Usuario no valido')
@@ -31,10 +34,15 @@ let buscarUsuario = async(usuario) =>{
     }
 }
 
+
+
+
 let generarToken = async(infoUsuario) =>{
+    console.log(infoUsuario) 
     let usuario = {
+        
         id_usuario: infoUsuario.id_usuario,
-        correo: infoUsuario.correo,
+        fecha_registro: infoUsuario.fecha_registro,
         tipoUsuario: infoUsuario.id_tipo_usuario
     };
     try{
@@ -60,16 +68,7 @@ let verificarToken = async(token) =>{
     }
 }
 
-let cambiarPassword = async(usuario) =>{
-    try {
-        let encriptacion = await bcrypt.genSalt(10);
-        usuario.nuevaPassword = await bcrypt.hash(usuario.nuevaPassword,encriptacion);
-        const nuevaPassword = await modeloUsuarios.cambiarPassword(usuario);
-    } catch (error) {
-        console.log(`Error en el controlador al cambiar la password: ${error}`);
-        throw new Error(error.message);
-    }
-}
+
 
 let listarUsuarios = async() =>{
     try {
@@ -81,5 +80,15 @@ let listarUsuarios = async() =>{
     }
 }
 
-// Exportar los modulos
-module.exports = {nuevoRegistro,buscarUsuario,generarToken,verificarToken,cambiarPassword,listarUsuarios}
+
+
+let eliminarusuario = async(idUsuario) =>{
+    try{
+        await modeloUsuarios.eliminarUsuario(idUsuario);
+    } catch(error) {
+        console.log(`Error en el controlador al intentar eliminar el presupuesto: ${error}`);
+        throw new Error(error.message);
+    }
+}
+
+module.exports = {nuevoRegistro,buscarUsuario,generarToken,verificarToken,listarUsuarios,eliminarusuario}
