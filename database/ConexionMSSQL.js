@@ -1,6 +1,6 @@
 const {Sequelize,DataTypes,Model} = require('sequelize');
 
-const sequelize =new Sequelize('proyectoTECLA',null,null,{
+const sequelize = new Sequelize('proyectoTECLA',null,null,{
     dialect:'mssql',//process.env.DIALECT,//MYSQL,SQL SERVER ,PG SQL,MONGOODB
     server:'localhost',//process.env.HOST,
     port:1433,//process.env.PORT_MSSQL,

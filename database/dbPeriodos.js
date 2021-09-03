@@ -23,6 +23,7 @@ const Periodos = sequelize.define('periodos',{
     createdAt: 'fecha_registro',
     updatedAt: 'fecha_actualizacion'
 });
+
 Periodos.belongsTo(VersionPresupuestos,{foreignKey: 'id_version_presupuesto'});
 VersionPresupuestos.hasMany(Periodos,{foreignKey: 'id_version_presupuesto'});
 

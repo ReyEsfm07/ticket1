@@ -1,7 +1,7 @@
 // Importar los mudulos necesarios a utilizar
 const {DataTypes, Model} = require('sequelize');
 const sequelize = require('./ConexionMSSQL');
-const Usuarios= require('./dbUsers')
+const Usuarios = require('./dbUsers')
 
 const TipoUsuarios = sequelize.define('tipo_de_usuarios',{
     id_tipo_usuario: {
@@ -17,6 +17,7 @@ const TipoUsuarios = sequelize.define('tipo_de_usuarios',{
 }, {
     timestamps: false
 });
+
 Usuarios.belongsTo(TipoUsuarios,{foreignKey: 'id_tipo_usuario'});
 TipoUsuarios.hasMany(Usuarios,{foreignKey: 'id_tipo_usuario'});
 
